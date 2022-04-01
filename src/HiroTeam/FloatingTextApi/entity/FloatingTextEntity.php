@@ -30,7 +30,7 @@ namespace HiroTeam\FloatingTextApi\entity;
 
 use pocketmine\entity\Human;
 use pocketmine\item\Item;
-use pocketmine\level\Level;
+use pocketmine\world\World;
 use pocketmine\nbt\tag\CompoundTag;
 
 class FloatingTextEntity extends Human

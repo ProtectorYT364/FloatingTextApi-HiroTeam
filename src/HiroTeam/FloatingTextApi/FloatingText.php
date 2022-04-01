@@ -32,7 +32,7 @@ use HiroTeam\FloatingTextApi\entity\FloatingTextEntity;
 use HiroTeam\FloatingTextApi\utils\SkinTag;
 use pocketmine\entity\Entity;
 use pocketmine\math\Vector3;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 
 class FloatingText extends PluginBase
@@ -48,7 +48,7 @@ class FloatingText extends PluginBase
      */
     private static $instance;
 
-    public function onEnable()
+    public function onEnable(): void
     {
         $this->skinTag = new SkinTag();
         $this->getServer()->getPluginManager()->registerEvents(new FloatingTextListener(), $this);
@@ -62,7 +62,7 @@ class FloatingText extends PluginBase
      */
     public function spawnFloatingText(Player $player, string $text): string
     {
-        $level = $player->getLevel();
+        $level = $player->getWorld();
         $nbt = Entity::createBaseNBT(
             new Vector3(
             $player->getFloorX(),
@@ -86,7 +86,7 @@ class FloatingText extends PluginBase
         if (!is_array($id)) {
             $id = [$id];
         }
-        foreach ($this->getServer()->getLevels() as $level) {
+        foreach ($this->getServer()->getWorlds() as $level) {
             foreach ($level->getEntities() as $entity) {
                 if ($entity instanceof FloatingTextEntity) {
                     if(in_array($entity->getFloatingTextId(), $id)){
@@ -120,7 +120,7 @@ class FloatingText extends PluginBase
         if (!is_array($id)) {
             $id = [$id];
         }
-        foreach ($this->getServer()->getLevels() as $level) {
+        foreach ($this->getServer()->getWorlds() as $level) {
             foreach ($level->getEntities() as $entity) {
                 if ($entity instanceof FloatingTextEntity) {
                     if(in_array($entity->getFloatingTextId(), $id)){

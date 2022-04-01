@@ -39,7 +39,7 @@ class FloatingTextListener implements Listener
     {
         $entity = $event->getEntity();
         if ($entity instanceof FloatingTextEntity) {
-            $event->setCancelled();
+            $event->cancel();
         }
     }
 }

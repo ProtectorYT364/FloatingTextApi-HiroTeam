@@ -1,7 +1,7 @@
 name: FloatingTextApi-HiroTeam
 author: HiroTeam-Willy
-version: 1.5.0
-api: 3.0.0
+version: 1.5.1
+api: 4.0.0
 main: HiroTeam\FloatingTextApi\FloatingText
 website: https://github.com/HiroshimaTeam
 description: This is a library to allow to make floating text very simply !
